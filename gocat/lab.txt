@@ -1,0 +1,11 @@
+sfo01-lab-p01
+sfo01-lab-cr01
+nyc01-lab-p01
+nyc01-lab-cr01
+lhr01-lab-p01
+lhr01-lab-cr01
+sin01-lab-p01
+sfo01-stage-p01
+sfo01-stage-cr01
+nyc01-stage-p01
+lhr01-stage-cr01
