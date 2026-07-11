@@ -36,33 +36,43 @@ func main() {
 	//		fmt.Printf("stringSlice has no elements\n")
 	//	}
 
-	nums := []int{1, 11, 21, 1211, 111221, 323311}
-	fmt.Printf("nums: %v\n", nums)
-	fmt.Printf("nums lenght: %d, nums capacity: %d\n", len(nums), cap(nums))
+	// nums := []int{1, 11, 21, 1211, 111221, 323311}
+	// fmt.Printf("nums: %v\n", nums)
+	// fmt.Printf("nums lenght: %d, nums capacity: %d\n", len(nums), cap(nums))
+	//
+	// middle := nums[1:3]
+	// fmt.Printf("middle: %v\n", middle)
+	// fmt.Printf("middle lenght: %d, middle capacity: %d\n", len(middle), cap(middle))
+	//
+	// fmt.Printf("nums: %v\n", nums)
+	// fmt.Printf("nums lenght: %d, nums capacity: %d\n", len(nums), cap(nums))
+	// nums[1] *= 4
+	//
+	// fmt.Printf("nums: %v\n", nums)
+	// fmt.Printf("middle: %v\n", middle)
+	// fmt.Printf("middle lenght: %d, middle capacity: %d\n", len(middle), cap(middle))
+	//
+	// middle = append(middle, 100)
+	// middle = append(middle, 200)
+	// middle = append(middle, 300)
+	// middle = append(middle, 400)
+	//
+	// fmt.Printf("middle: %v\n", middle)
+	// fmt.Printf("nums: %v\n", nums)
+	// nums[1] *= 10
+	//
+	// fmt.Printf("nums: %v\n", nums)
+	// fmt.Printf("middle: %v\n", middle)
+	// fmt.Printf("\n\n")
 
-	middle := nums[1:3]
-	fmt.Printf("middle: %v\n", middle)
-	fmt.Printf("middle lenght: %d, middle capacity: %d\n", len(middle), cap(middle))
+	//	s := make([]string, 3, 2) // ./main.go:68:22: invalid argument: length and capacity swapped
+	s := make([]string, 1, 2)
 
-	fmt.Printf("nums: %v\n", nums)
-	fmt.Printf("nums lenght: %d, nums capacity: %d\n", len(nums), cap(nums))
-	nums[1] *= 4
-
-	fmt.Printf("nums: %v\n", nums)
-	fmt.Printf("middle: %v\n", middle)
-	fmt.Printf("middle lenght: %d, middle capacity: %d\n", len(middle), cap(middle))
-
-	middle = append(middle, 100)
-	middle = append(middle, 200)
-	middle = append(middle, 300)
-	middle = append(middle, 400)
-
-	fmt.Printf("middle: %v\n", middle)
-	fmt.Printf("nums: %v\n", nums)
-	nums[1] *= 10
-
-	fmt.Printf("nums: %v\n", nums)
-	fmt.Printf("middle: %v\n", middle)
-	fmt.Printf("\n\n")
+	fmt.Printf("%T\n", s)
+	fmt.Printf("%q\n", s) // ["" ""]
+	s[0] = "hello"
+	fmt.Printf("%q\n", s)
+	s[1] = "world" // panic: runtime error: index out of range [1] with length 1
+	fmt.Printf("%q\n", s)
 
 }
