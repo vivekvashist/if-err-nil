@@ -68,11 +68,26 @@ func main() {
 	//	s := make([]string, 3, 2) // ./main.go:68:22: invalid argument: length and capacity swapped
 	s := make([]string, 1, 2)
 
+	fmt.Printf("len(s) %d cap(s) %d\n", len(s), cap(s))
 	fmt.Printf("%T\n", s)
 	fmt.Printf("%q\n", s) // ["" ""]
 	s[0] = "hello"
 	fmt.Printf("%q\n", s)
-	s[1] = "world" // panic: runtime error: index out of range [1] with length 1
+	//	s[1] = "world" // panic: runtime error: index out of range [1] with length 1
+	s = append(s, "world")
 	fmt.Printf("%q\n", s)
+	fmt.Printf("len(s) %d cap(s) %d\n", len(s), cap(s))
 
+	s = append(s, "golang")
+	fmt.Printf("%q\n", s)
+	fmt.Printf("len(s) %d cap(s) %d\n", len(s), cap(s))
+	s = append(s, "new")
+	fmt.Printf("%q\n", s)
+	fmt.Printf("len(s) %d cap(s) %d\n", len(s), cap(s)) // len(s) 4 cap(s) 4
+	s = append(s, "apple")
+	fmt.Printf("len(s) %d cap(s) %d\n", len(s), cap(s)) // len(s) 5 cap(s) 8
+	fmt.Printf("%#v\n", s)
+	fmt.Printf("%+v\n", s)
+	fmt.Printf("%T\n", s)
+	fmt.Printf("%q\n", s)
 }
