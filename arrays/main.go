@@ -33,4 +33,15 @@ func main() {
 		fmt.Printf("%d\n", i)
 	}
 
+	var vals [3]int
+	vals[0] = 10
+	vals[1] = 20
+	vals[2] = 30
+
+	fmt.Printf("%v\n", vals)
+	//	var vals2 [4]int = vals
+	// 	./main.go:42:21: cannot use vals (variable of type [3]int) as [4]int value in variable declaration
+
+	// fmt.Printf("%v\n", vals2)
+
 }
