@@ -6,18 +6,20 @@ import (
 
 func main() {
 
-	type user struct {
-		name  string
-		age   int
-		email string
+	type NetworkInterface struct {
+		MTU     int
+		macAddr string
+		IPAddr  string
 	}
 
-	u := user{"tom", 20, "tom@tom.com"}
+	eth0 := NetworkInterface{}
+	fmt.Printf("%v\n", eth0)  // {0  }
+	fmt.Printf("%#v\n", eth0) // main.NetworkInterface{MTU:0, macAddr:"", IPAddr:""}
+	fmt.Printf("%+v\n", eth0) // {MTU:0 macAddr: IPAddr:}
 
-	fmt.Printf("%T\n", u)
-	fmt.Printf("%v\n", u)
-	fmt.Printf("%#v\n", u)
-	fmt.Printf("%+v\n", u)
-	fmt.Printf("%p\n", &u)
+	eth0.IPAddr = "192.168.1.10"
+	eth0.MTU = 1500
+	eth0.macAddr = "00:1a:2b:3c:4d:5e"
 
+	fmt.Printf("configured eth0: %+v\n", eth0) // configured eth0: {MTU:1500 macAddr:00:1a:2b:3c:4d:5e IPAddr:192.168.1.10}
 }
