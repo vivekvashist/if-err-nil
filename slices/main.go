@@ -5,89 +5,52 @@ import (
 )
 
 func main() {
-	// cart := []string{"apple", "banana", "milk"}
-	// fmt.Printf("%q\n", cart)
-	// fruit := cart[:2]
-	// fmt.Printf("%q\n", fruit)
-	// cart[0] = "pear"
-	// fmt.Printf("%q\n", cart) // ["pear" "banana" "milk"]
-	// fmt.Printf("%q\n", fruit) // ["pear" "banana"]
-	//	a := []int{1, 2, 3}
-	//	b := a[:]
-	//	a = append(a, 4)
-	//	a[1] = 99
-	//	fmt.Printf("%v\n", a) // [1 99 3 4]
-	//	fmt.Printf("%v\n", b) // [1 2 3]
+	connections := make([]string, 0)
+	fmt.Printf("active connections: %d\n", len(connections))
 
-	// var intSlice []int = []int{3, 1, 4, 3, 9, 6}
-	// stringSlice := []string{"The", "sky", "was", "the", "color"}
-	//
-	//	if n := len(intSlice); n > 0 {
-	//		fmt.Printf("intSlice has %d elements\n", n)
-	//	} else {
-	//
-	//		fmt.Printf("intSlice has no elements\n")
-	//	}
-	//
-	//	if n := len(stringSlice); n > 0 {
-	//		fmt.Printf("stringSlice has %d elements\n", n)
-	//	} else {
-	//
-	//		fmt.Printf("stringSlice has no elements\n")
-	//	}
+	connections = append(connections, "192.168.1.20")
+	fmt.Printf("active connections: %d\n", len(connections))
 
-	// nums := []int{1, 11, 21, 1211, 111221, 323311}
-	// fmt.Printf("nums: %v\n", nums)
-	// fmt.Printf("nums lenght: %d, nums capacity: %d\n", len(nums), cap(nums))
-	//
-	// middle := nums[1:3]
-	// fmt.Printf("middle: %v\n", middle)
-	// fmt.Printf("middle lenght: %d, middle capacity: %d\n", len(middle), cap(middle))
-	//
-	// fmt.Printf("nums: %v\n", nums)
-	// fmt.Printf("nums lenght: %d, nums capacity: %d\n", len(nums), cap(nums))
-	// nums[1] *= 4
-	//
-	// fmt.Printf("nums: %v\n", nums)
-	// fmt.Printf("middle: %v\n", middle)
-	// fmt.Printf("middle lenght: %d, middle capacity: %d\n", len(middle), cap(middle))
-	//
-	// middle = append(middle, 100)
-	// middle = append(middle, 200)
-	// middle = append(middle, 300)
-	// middle = append(middle, 400)
-	//
-	// fmt.Printf("middle: %v\n", middle)
-	// fmt.Printf("nums: %v\n", nums)
-	// nums[1] *= 10
-	//
-	// fmt.Printf("nums: %v\n", nums)
-	// fmt.Printf("middle: %v\n", middle)
-	// fmt.Printf("\n\n")
+	connections = append(connections, "192.168.1.22")
+	fmt.Printf("active connections: %d\n", len(connections))
 
-	//	s := make([]string, 3, 2) // ./main.go:68:22: invalid argument: length and capacity swapped
-	s := make([]string, 1, 2)
+	fmt.Printf("first connected host: %s\n", connections[0])
 
-	fmt.Printf("len(s) %d cap(s) %d\n", len(s), cap(s))
-	fmt.Printf("%T\n", s)
-	fmt.Printf("%q\n", s) // ["" ""]
-	s[0] = "hello"
-	fmt.Printf("%q\n", s)
-	//	s[1] = "world" // panic: runtime error: index out of range [1] with length 1
-	s = append(s, "world")
-	fmt.Printf("%q\n", s)
-	fmt.Printf("len(s) %d cap(s) %d\n", len(s), cap(s))
+	connections[0] = "192.168.1.99"
+	fmt.Printf("updated connected host: %s\n", connections[0])
 
-	s = append(s, "golang")
+	dnsServers := make([]string, 2)
+
+	fmt.Printf("dnsServers %q\n", dnsServers)
+	fmt.Printf("total dnsServers: %d\n", len(dnsServers))
+	fmt.Printf("slot 0 DNS (empty): %q\n", dnsServers[0])
+
+	dnsServers = append(dnsServers, "1.1.1.1")
+	fmt.Printf("dnsServers %q\n", dnsServers)             /// ["" "" "1.1.1.1"]
+	fmt.Printf("total dnsServers: %d\n", len(dnsServers)) // 3
+
+	dnsServers[0] = "8.8.8.8"
+	fmt.Printf("dnsServers %q\n", dnsServers) /// ["8.8.8.8" "" "1.1.1.1"]
+
+	dnsServers[1] = "9.9.9.9"
+	fmt.Printf("dnsServers %q\n", dnsServers) /// ["8.8.8.8" "" "1.1.1.1"]
+
+	for _, d := range dnsServers {
+		fmt.Printf("%s\n", d)
+	}
+
+	v6dnsServers := []string{"2620:fe::fe", "2620:fe::9", "2001:4860:4860::8888", "2001:4860:4860::8844"}
+
+	for i, v := range v6dnsServers {
+		fmt.Printf("%d --> %v\n", i, v)
+	}
+	// slices are reference types
+	s := v6dnsServers[1:3]
 	fmt.Printf("%q\n", s)
-	fmt.Printf("len(s) %d cap(s) %d\n", len(s), cap(s))
-	s = append(s, "new")
-	fmt.Printf("%q\n", s)
-	fmt.Printf("len(s) %d cap(s) %d\n", len(s), cap(s)) // len(s) 4 cap(s) 4
-	s = append(s, "apple")
-	fmt.Printf("len(s) %d cap(s) %d\n", len(s), cap(s)) // len(s) 5 cap(s) 8
-	fmt.Printf("%#v\n", s)
-	fmt.Printf("%+v\n", s)
-	fmt.Printf("%T\n", s)
-	fmt.Printf("%q\n", s)
+	fmt.Printf("%q\n", v6dnsServers)
+
+	s[1] = "1.1.1.1"
+	fmt.Printf("%q\n", s)            // ["2620:fe::9" "1.1.1.1"]
+	fmt.Printf("%q\n", v6dnsServers) // ["2620:fe::fe" "2620:fe::9" "1.1.1.1" "2001:4860:4860::8844"]
+
 }
