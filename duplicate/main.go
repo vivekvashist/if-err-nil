@@ -25,5 +25,8 @@ func main() {
 		"192.168.3.12",
 	}
 
+	visited := []string{"api.example.com", "cdn.example.com", "api.example.com", "www.example.com", "api.example.com"}
+
 	fmt.Printf("%v\n", RemoveDuplicates(ips))
+	fmt.Printf("%v\n", RemoveDuplicates(visited))
 }
