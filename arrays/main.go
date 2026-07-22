@@ -44,4 +44,8 @@ func main() {
 
 	// fmt.Printf("%v\n", vals2)
 
+	words := [...]string{}
+	fmt.Printf("%#v\n", words) // [0]string{}
+	fmt.Printf("%+v\n", words)
+
 }
