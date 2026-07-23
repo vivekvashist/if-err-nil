@@ -1,0 +1,3 @@
+There are four families of printing functions defined by their output destination. Print, Println and Printf write to os.Stdout; Sprint, Sprintln and Sprintf return a string; Fprint, Fprintln and Fprintf write to an io.Writer; and Append, Appendln and Appendf append the output to a byte slice.
+
+
