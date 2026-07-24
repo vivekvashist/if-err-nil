@@ -4,6 +4,12 @@ import (
 	"fmt"
 )
 
+func printer(msgs ...string) {
+	for _, msg := range msgs {
+		fmt.Printf("%s\n", msg)
+	}
+}
+
 func main() {
 	//fmt.Printf("Hello World!\n")
 
@@ -47,7 +53,8 @@ func main() {
 
 	// v is a rune i.e int32
 	for i, v := range s {
-		fmt.Printf("%d %v %v %T \n", i, v, string(v), v)
+		fmt.Printf("%d %v %v %T %c \n", i, v, string(v), v, v)
 	}
+	printer("10.1.1.1", "10.2.2.2", "192.1.1.1")
 
 }
