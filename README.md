@@ -1,2 +1,2 @@
 # if-err-nil
-My personal sandbox for learning Go
+Replacing try/except with if err != nil checks.
