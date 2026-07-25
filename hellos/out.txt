@@ -1,0 +1,4 @@
+vivek@timtam-syd1:~/go/src/github.com/vivekvashist/if-err-nil/hellos$ git --no-pager show -s --format=%B  2ed9a5b6f2
+नमस्कार
+
+
