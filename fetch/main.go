@@ -8,6 +8,12 @@ import (
 )
 
 func main() {
+
+	if len(os.Args) < 2 {
+		fmt.Fprintf(os.Stderr, "usage: fetch <url> ...")
+		os.Exit(1)
+	}
+
 	for _, url := range os.Args[1:] {
 		fmt.Printf("%s\n", url)
 		resp, err := http.Get(url)
