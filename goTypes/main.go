@@ -6,11 +6,22 @@ func main() {
 	var num int = 42
 
 	types := []interface{}{
-		true,      // bool
-		"hello",   // string
+		true, // bool
+
+		"hello", // string
+
 		int(10),   // int
 		int8(8),   // int8
 		int16(16), // int16
+		int32(32), // int32
+		int64(64), // int64
+
+		uint(10),   // uint
+		uint8(8),   // uint8
+		uint16(16), // uint16
+		uint32(32), // uint32
+		uint64(64), // unint64
+
 		byte('A'), // byte (alias for uint8)
 		rune('⌘'), // rune (alias for int32)
 
