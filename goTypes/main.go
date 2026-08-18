@@ -22,6 +22,12 @@ func main() {
 		uint32(32), // uint32
 		uint64(64), // unint64
 
+		float32(3.14),    // float32
+		float64(3.14159), // float64
+
+		complex64(1 + 2i),  // complex64
+		complex128(2 + 4i), // complex128
+
 		byte('A'), // byte (alias for uint8)
 		rune('⌘'), // rune (alias for int32)
 
