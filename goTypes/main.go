@@ -40,6 +40,8 @@ func main() {
 
 		&num, // pointer (*int)
 
+		any("anything"), // interface/any
+
 	}
 
 	for _, v := range types {
